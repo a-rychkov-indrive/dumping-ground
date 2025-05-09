@@ -1,1 +1,464 @@
-<h1>Hello!</h1>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Indrive Deeplink Explorer</title>
+        <style>
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+                color: #333;
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 960px;
+                margin: 30px auto;
+                padding: 30px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+
+            h1 {
+                color: #007bff;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            h1 a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            h2 {
+                color: #28a745;
+                margin-top: 25px;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 8px;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 15px;
+            }
+
+            li a {
+                display: block;
+                padding: 10px 15px;
+                text-decoration: none;
+                color: #333;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+            li a:hover {
+                background-color: #e9ecef;
+                color: #007bff;
+                border-color: #007bff;
+            }
+
+            li small {
+                display: block;
+                color: #6c757d;
+                font-size: 0.8em;
+                margin-top: 3px;
+            }
+
+            .note {
+                color: #6c757d;
+                font-size: 0.9em;
+                margin-top: 5px;
+                display: block;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .container {
+                    margin: 20px;
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                <a
+                    href="https://indrive.atlassian.net/wiki/spaces/AD/pages/6521154/Deeplink"
+                    target="_blank"
+                    >Indrive Deeplink Explorer</a
+                >
+            </h1>
+
+            <h2>General:</h2>
+            <ul>
+                <li>
+                    <a href="indrive://web?url=https://cat.freadm.tech/"
+                        >Open cat.freadm.tech in WebView</a
+                    >
+                    <small>indrive://web?url=https://cat.freadm.tech/</small>
+                </li>
+                <li>
+                    <a href="indrive://web?url=http%3A%2F%2Fwww.google.com"
+                        >Open Google in WebView (encoded URL)</a
+                    >
+                    <small>indrive://web?url=http%3A%2F%2Fwww.google.com</small>
+                </li>
+                <li>
+                    <a
+                        href="indrive://webdialog?url=http%3A%2F%2Fwww.google.com"
+                        >Open Google in WebDialog (encoded URL)</a
+                    >
+                    <small
+                        >indrive://webdialog?url=http%3A%2F%2Fwww.google.com</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/driver/appcity?sw_event=go_to_driver_appcity&sw_customkey=mode&sw_customvalue=driver"
+                    >
+                        Driver AppCity
+                        <span class="note"
+                            >sw_event for Swrve tracking; sw_customkey &
+                            sw_customvalue for user property change in
+                            Swrve</span
+                        >
+                    </a>
+                    <small
+                        >indrive://open/driver/appcity?sw_event=go_to_driver_appcity&sw_customkey=mode&sw_customvalue=driver</small
+                    >
+                </li>
+            </ul>
+
+            <h2>Customer:</h2>
+            <ul>
+                <li>
+                    <a
+                        href="indrive://open/client/appcity?start_latitude=55.833650&start_longitude=37.525384&end_latitude=55.798157&end_longitude=37.643565&price=420"
+                        >Open Map with Coordinates and Price</a
+                    >
+                    <small
+                        >indrive://open/client/appcity?start_latitude=55.833650&start_longitude=37.525384&end_latitude=55.798157&end_longitude=37.643565&price=420</small
+                    >
+                </li>
+                <li>
+                    <a href="indrive://open/client/appcity?pid=112312&tttt=123"
+                        >Open City Module (PID & TTTT parameters)</a
+                    >
+                    <small
+                        >indrive://open/client/appcity?pid=112312&tttt=123</small
+                    >
+                </li>
+                <li>
+                    <a href="indrive://open/client/city">Open City: Ayan</a>
+                    <small>indrive://open/client/city</small>
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/client/appcity?order_type_name=$order_type_name"
+                    >
+                        Select Order Type in City Module
+                        <span class="note"
+                            >Replace $order_type_name (e.g.,
+                            ?order_type_name=courier)</span
+                        >
+                    </a>
+                    <small
+                        >indrive://open/client/appcity?order_type_name=$order_type_name</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/client/appcity?departure_name=StartAddress&departure_latitude=55.833650&departure_longitude=37.525384&destination_name=EndAddress&destination_latitude=55.798157&destination_longitude=37.643565&price=400"
+                    >
+                        Open Form with Pre-filled Details
+                        <span class="note"
+                            >Departure/Destination Name & Coordinates,
+                            Price</span
+                        >
+                    </a>
+                    <small
+                        >indrive://open/client/appcity?departure_name=StartAddress&departure_latitude=55.833650&departure_longitude=37.525384&destination_name=EndAddress&destination_latitude=55.798157&destination_longitude=37.643565&price=400</small
+                    >
+                </li>
+                <li>
+                    <a href="indrive://open/client/profile">Open Profile</a>
+                    <small>indrive://open/client/profile</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/appcitymyorders"
+                        >Open My Orders</a
+                    >
+                    <small>indrive://open/client/appcitymyorders</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/intercity3"
+                        >Open Intercity (New)</a
+                    >
+                    <small>indrive://open/client/intercity3</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/appintercity"
+                        >Open Intercity (Calling)</a
+                    >
+                    <small>indrive://open/client/appintercity</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/truck"
+                        >Open Truck (Microtenders)</a
+                    >
+                    <small>indrive://open/client/truck</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/apptruck"
+                        >Open Truck (Calling)</a
+                    >
+                    <small>indrive://open/client/apptruck</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/cargo">Open New Cargo</a>
+                    <small>indrive://open/client/cargo</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/appsettings"
+                        >Open Settings</a
+                    >
+                    <small>indrive://open/client/appsettings</small>
+                </li>
+                <li>
+                    <a href="indrive://open/client/support"
+                        >Open Support (Webim)</a
+                    >
+                    <small>indrive://open/client/support</small>
+                </li>
+                <li>
+                    <a href="indrive://open/any/super_services?mode=customer"
+                        >Super Services: Switch to Customer Mode</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=categories"
+                        >Super Services: Service Catalog</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=categories</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=categories/services&category_id=&lt;id категории&gt;"
+                        >Super Services: Open Category by ID</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=categories/services&category_id=&lt;id
+                        категории&gt;</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=categories/new_order&service_id=&lt;id сервиса&gt;"
+                        >Super Services: Open Specific Service</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=categories/new_order&service_id=&lt;id
+                        сервиса&gt;</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=orders"
+                        >Super Services: My Orders [Customer]</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=orders</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=orders/order&order_id=&lt;id заказа&gt;"
+                        >Super Services: Open Order Card</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=orders/order&order_id=&lt;id
+                        заказа&gt;</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=customer&route=orders/order/review&order_id=&lt;id заказа&gt;"
+                        >Super Services: Open Order Card with Review</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=customer&route=orders/order/review&order_id=&lt;id
+                        заказа&gt;</small
+                    >
+                </li>
+                <li>
+                    <a href="geo:43.301787,76.93153">Open GEO Location</a>
+                    <small>geo:43.301787,76.93153</small>
+                </li>
+                <li>
+                    <a href="indrive://open/any/">Open Empty Module</a>
+                    <small>indrive://open/any/</small>
+                </li>
+                <li>
+                    <a href="indrive://">Open Empty</a>
+                    <small>indrive://</small>
+                </li>
+            </ul>
+
+            <h2>Driver/Executor:</h2>
+            <ul>
+                <li>
+                    <a href="indrive://open/driver/city">Open City: Ayan</a>
+                    <small>indrive://open/driver/city</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/wallet"
+                        >Open Driver Wallet</a
+                    >
+                    <small>indrive://open/driver/wallet</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/appcity">Open City Module</a>
+                    <small>indrive://open/driver/appcity</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/profile"
+                        >Open Driver Profile</a
+                    >
+                    <small>indrive://open/driver/profile</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/intercity"
+                        >Open Intercity (New)</a
+                    >
+                    <small>indrive://open/driver/intercity</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/appintercity"
+                        >Open Intercity (Calling)</a
+                    >
+                    <small>indrive://open/driver/appintercity</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/truck"
+                        >Open Truck (Microtenders)</a
+                    >
+                    <small>indrive://open/driver/truck</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/apptruck"
+                        >Open Truck (Calling)</a
+                    >
+                    <small>indrive://open/driver/apptruck</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/cargo">Open New Cargo</a>
+                    <small>indrive://open/driver/cargo</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/cabinet">Open My Cabinet</a>
+                    <small>indrive://open/driver/cabinet</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/appsettings"
+                        >Open Settings</a
+                    >
+                    <small>indrive://open/driver/appsettings</small>
+                </li>
+                <li>
+                    <a href="indrive://open/driver/support"
+                        >Open Support (Webim)</a
+                    >
+                    <small>indrive://open/driver/support</small>
+                </li>
+                <li>
+                    <a href="indrive://open/any/super_services?mode=tasker"
+                        >Super Services: Switch to Executor Mode</a
+                    >
+                    <small>indrive://open/any/super_services?mode=tasker</small>
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=tasker&route=feed"
+                        >Super Services: Order Feed</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=tasker&route=feed</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=tasker&route=orders"
+                        >Super Services: My Orders [Executor]</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=tasker&route=orders</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=tasker&route=feed/order&order_id=&lt;id заказа&gt;"
+                        >Super Services: Order Card from Feed</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=tasker&route=feed/order&order_id=&lt;id
+                        заказа&gt;</small
+                    >
+                </li>
+                <li>
+                    <a
+                        href="indrive://open/any/super_services?mode=tasker&route=orders/order&order_id=&lt;id заказа&gt;"
+                        >Super Services: Order Card from My Orders</a
+                    >
+                    <small
+                        >indrive://open/any/super_services?mode=tasker&route=orders/order&order_id=&lt;id
+                        заказа&gt;</small
+                    >
+                </li>
+            </ul>
+
+            <h2>Bdu:</h2>
+            <ul>
+                <li>
+                    <a
+                        href="indrive://open/any/bdu?slug=contractor-wallet-balance-rates"
+                        >Bdu: Contractor Wallet Balance</a
+                    >
+                    <small
+                        >indrive://open/any/bdu?slug=contractor-wallet-balance-rates</small
+                    >
+                </li>
+                <li>
+                    <a href="indrive://open/any/bdu?slug=safety-tips_pax_chat_1"
+                        >Bdu: Safety Tips Pax Chat 1</a
+                    >
+                    <small
+                        >indrive://open/any/bdu?slug=safety-tips_pax_chat_1</small
+                    >
+                </li>
+                <li>
+                    <a href="indrive://open/any/bdu?slug=jet-pay_landing"
+                        >Bdu: Jet Pay Landing</a
+                    >
+                    <small>indrive://open/any/bdu?slug=jet-pay_landing</small>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
